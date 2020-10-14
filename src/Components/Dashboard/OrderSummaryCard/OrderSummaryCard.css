@@ -1,0 +1,12 @@
+.status-btn-Panding{
+    background-color: #FFE3E3;
+    color: #FF4545;
+}
+.status-btn-On-going{
+    background-color:#ffe0bb;
+    color: #ffa909;
+}
+.status-btn-Done{
+    background-color: #C6FFE0;
+    color: #009444;
+}

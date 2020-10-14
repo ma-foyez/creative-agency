@@ -30,6 +30,7 @@ const AddOrder = () => {
         formData.append('service', order.service);
         formData.append('projectDetails', order.projectDetails);
         formData.append('price', order.price);
+        formData.append('status','Panding');
 
         fetch('http://localhost:5000/addOrder', {
             method: 'POST',

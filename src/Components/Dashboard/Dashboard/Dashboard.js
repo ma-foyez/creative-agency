@@ -6,6 +6,7 @@ import ServiceList from '../ServiceList/ServiceList';
 import SideMenu from '../SideMenu/SideMenu';
 
 const Dashboard = () => {
+    document.title = 'Creative-agency | dashboard'
     return (
         <>
         <ServiceList></ServiceList>

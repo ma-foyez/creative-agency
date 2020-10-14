@@ -7,7 +7,9 @@ const ClientFeedbackData = ({ review }) => {
                 <div className="d-flex justify-content-between">
                     <img className="img-thumbnail w-25 rounded-circle" src={review.photo} alt="" />
                     <div className="card-title">
-                        <h4>{review.name}</h4>
+                        {
+                            review.name ? <h4>{review.name}</h4> : <h4>{review.data.name}</h4>
+                        }
                         <p>{review.data.companyName}</p>
                     </div>
                 </div>

@@ -37,8 +37,8 @@ export const handleGoogleSignIn = () => {
             return error;
 
         })
-
 }
+
 // get uer token
 const getUserToken = () => {
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)

@@ -29,17 +29,21 @@ const SideMenu = () => {
                     {
                         !isAdmin && <div>
                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/order"><Nav.Link href="#order"> <FontAwesomeIcon icon={faShoppingCart} /> Order</Nav.Link></Link>
-                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/service"><Nav.Link href="#service"><FontAwesomeIcon icon={faBriefcase} /> Service List</Nav.Link></Link>
+                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/admin/servicelist"><Nav.Link href="#service"><FontAwesomeIcon icon={faBriefcase} /> Service List</Nav.Link></Link>
                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/review"><Nav.Link href="#review"> <FontAwesomeIcon icon={faCommentAlt} /> Review</Nav.Link></Link>
                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/addService"><Nav.Link href="#addService"> <FontAwesomeIcon icon={faPlus} /> Add Service</Nav.Link></Link>
                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/makeAdmin"><Nav.Link href="#makeAdmin"><FontAwesomeIcon icon={faUserPlus} /> Make Admin</Nav.Link></Link>
+                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/orderSummary"><Nav.Link href="#makeAdmin"><FontAwesomeIcon icon={faUserPlus} /> Order list</Nav.Link></Link>
                         </div>
                     }
                     {
                         isAdmin && <div>
-                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/service"><Nav.Link href="#service"><FontAwesomeIcon icon={faBriefcase} /> Service List</Nav.Link></Link>
+                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/order"><Nav.Link href="#order"> <FontAwesomeIcon icon={faShoppingCart} /> Order</Nav.Link></Link>
+                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/admin/servicelist"><Nav.Link href="#service"><FontAwesomeIcon icon={faBriefcase} /> Service List</Nav.Link></Link>
+                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/review"><Nav.Link href="#review"> <FontAwesomeIcon icon={faCommentAlt} /> Review</Nav.Link></Link>
                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/addService"><Nav.Link href="#addService"> <FontAwesomeIcon icon={faPlus} /> Add Service</Nav.Link></Link>
                             <Link className="text-decoration-none text-secondary font-weight-bold" to="/makeAdmin"><Nav.Link href="#makeAdmin"><FontAwesomeIcon icon={faUserPlus} /> Make Admin</Nav.Link></Link>
+                            <Link className="text-decoration-none text-secondary font-weight-bold" to="/orderSummary"><Nav.Link href="#makeAdmin"><FontAwesomeIcon icon={faUserPlus} /> Order list</Nav.Link></Link>
                         </div>
                     }
                 </Nav>
