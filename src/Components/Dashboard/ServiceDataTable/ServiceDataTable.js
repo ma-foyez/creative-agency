@@ -5,7 +5,7 @@ const ServiceDataTable = ({ order }) => {
     const [status, setStatus] = useState({});
     const handleStatusChange = (e) => {
         const newStatus = e.target.value;
-        fetch(`https://afternoon-journey-45337.herokuapp.com/updateStatus?id=` + order._id, {
+        fetch(`https://creatives-agency.herokuapp.com/updateStatus?id=` + order._id, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status: newStatus })

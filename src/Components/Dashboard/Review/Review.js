@@ -13,7 +13,7 @@ const Review = () => {
         const info = { name, email, photo, data };
         console.log(info);
 
-        fetch('https://afternoon-journey-45337.herokuapp.com/addUserFeedback', {
+        fetch('https://creatives-agency.herokuapp.com/addUserFeedback', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(info)

@@ -8,7 +8,7 @@ const Dashboard = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
-        fetch('https://afternoon-journey-45337.herokuapp.com/checkAdmin', {
+        fetch('https://creatives-agency.herokuapp.com/checkAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })

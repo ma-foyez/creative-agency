@@ -3,7 +3,7 @@ import './OrderSummaryCard.css'
 const OrderSummaryCard = ({ order }) => {
     return (
         <div className="col-md-4">
-            <div className="shadow-sm p-4 mb-4 bg-white rounded m-4">
+            <div className="shadow-sm p-4 mb-3 bg-white rounded m-4">
                 <div className="card-title">
                     {
                         order.projectFile && <img style={{height: '100px', width: '100px'}} className="img-thumbnail rounded-circle" src={`data:image/png;base64,${order.projectFile.img}`} alt="" />

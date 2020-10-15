@@ -30,7 +30,7 @@ const AddOrder = () => {
         formData.append('price', order.price);
         formData.append('status', 'Panding');
 
-        fetch('https://afternoon-journey-45337.herokuapp.com/addOrder', {
+        fetch('https://creatives-agency.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })

@@ -18,10 +18,11 @@ import AddOrder from './Components/Dashboard/AddOrder/AddOrder';
 import Review from './Components/Dashboard/Review/Review';
 import OrderSummary from './Components/Dashboard/OrderSummary/OrderSummary';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+
 export const userContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>

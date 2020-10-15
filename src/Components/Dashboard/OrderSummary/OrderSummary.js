@@ -9,7 +9,7 @@ const OrderSummary = () => {
     const [orderSummary, setOrderSummary] = useState([]);
     const [loading, setLoading] = useState(false)
     useEffect(() => {
-        fetch('https://afternoon-journey-45337.herokuapp.com/userOrderSummary?email=' + loggedInUser.email)
+        fetch('https://creatives-agency.herokuapp.com/userOrderSummary?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => {
                 setOrderSummary(data);
@@ -35,7 +35,7 @@ const OrderSummary = () => {
                     </h3>
                     <div className="row justify-content-center">
                         {
-                            loading ? orderSummary.map(data => <OrderSummaryCard order={data}></OrderSummaryCard>) :
+                            loading ? orderSummary.map(data => <OrderSummaryCard key={data._id} order={data}></OrderSummaryCard>) :
                                 <div className="text-danger m-5 d-flex align-items-center font-weight-bold">
                                     <ReactBootstrap.Spinner animation="border" />
                                     <span className="ml-3"> Loading order summary...........</span>

@@ -10,7 +10,7 @@ const ServiceList = () => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        fetch('https://afternoon-journey-45337.herokuapp.com/loadAllOrders')
+        fetch('https://creatives-agency.herokuapp.com/loadAllOrders')
             .then(res => res.json())
             .then(data => {
                 setLoadOrders(data);
@@ -41,7 +41,7 @@ const ServiceList = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            loadOrders.map(orders => <ServiceDataTable order={orders}></ServiceDataTable>)
+                                            loadOrders.map(orders => <ServiceDataTable key={orders._id} order={orders}></ServiceDataTable>)
                                         }
                                     </tbody>
                                 </Table>

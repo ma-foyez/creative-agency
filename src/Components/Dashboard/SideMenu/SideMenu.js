@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBriefcase, faCoffee, faPlus, faShoppingCart, faSignOutAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faBriefcase , faPlus, faShoppingCart, faSignOutAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { faCommentAlt } from '@fortawesome/free-regular-svg-icons';
 import { userContext } from '../../../App';
 import './SideMenu.css'
@@ -10,7 +10,7 @@ const SideMenu = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
-        fetch('https://afternoon-journey-45337.herokuapp.com/checkAdmin', {
+        fetch('https://creatives-agency.herokuapp.com/checkAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })

@@ -17,15 +17,15 @@ const Contact = () => {
                     <div className="col-md-7">
                         <form onSubmit={handleSubmit(onSubmit)} className="m-3 form">
 
-                            <div class="form-group">
+                            <div className="form-group">
                                 <input type="email" className="form-control" name="email" ref={register({ required: true })} placeholder="Your Email" />
                                 {errors.email && <span className="text-danger font-weight-bold">Please enter your email</span>}
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <input type="text" className="form-control" name="name" ref={register({ required: true })} placeholder="Your Name/ Company Name" />
                                 {errors.name && <span className="text-danger font-weight-bold">Please enter your name or your company name</span>}
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <textarea className="form-control" name="message" ref={register({ required: true })} placeholder="Your Message" rows="4"></textarea>
                                 {errors.message && <span className="text-danger font-weight-bold">Say something</span>}
                             </div>
