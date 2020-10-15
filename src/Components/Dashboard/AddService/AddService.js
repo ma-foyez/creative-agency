@@ -23,15 +23,17 @@ const AddService = () => {
         formData.append('serviceTitle', info.serviceTitle);
         formData.append('description', info.description);
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://afternoon-journey-45337.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
                 if(data){
-                    alert('new service added')
+                    alert('New Service Added Successfully')
                 }
+                document.getElementById('serviceTitle').value = '';
+                document.getElementById('description').value = '';
             })
     };
     return (
@@ -49,12 +51,12 @@ const AddService = () => {
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label for="service-title">Service Title</label>
-                                        <input type="text" onBlur={handleBlur} className="form-control" name="serviceTitle" ref={register({ required: true })} placeholder="Service Title" />
+                                        <input type="text" onBlur={handleBlur} className="form-control" id="serviceTitle" name="serviceTitle" ref={register({ required: true })} placeholder="Service Title" />
                                         {errors.serviceTitle && <span className="text-danger font-weight-bold">Please enter a service title</span>}
                                     </div>
                                     <div class="form-group">
                                         <label for="description">DesCription</label>
-                                        <textarea onBlur={handleBlur} className="form-control" name="description" ref={register({ required: true })} placeholder="DesCription"></textarea>
+                                        <textarea onBlur={handleBlur} className="form-control" id="description" name="description" ref={register({ required: true })} placeholder="DesCription"></textarea>
                                         {errors.description && <span className="text-danger font-weight-bold">Please Enter a description</span>}
                                     </div>
                                 </div>

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://afternoon-journey-45337.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -30,8 +30,8 @@ const MakeAdmin = () => {
                     <div className="add-service p-4">
                         <h3 className="font-weight-bold">Add New Admin</h3>
                         <form onSubmit={handleSubmit(onSubmit)} className="m-3 form">
-                            <div className="row rounded bg-white p-5 m-1">
-                                <div className="col-md-6">
+                            <div className="row">
+                                <div className="col-md-8 shadow-sm p-5 mb-5 bg-white rounded">
                                     <div class="form-group">
                                         <label for="Email">Email</label>
                                         <input type="email" className="form-control" name="email" id="name" ref={register({ required: true })} placeholder="abc@gmail.com" />

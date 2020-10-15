@@ -5,10 +5,6 @@ import { userContext } from '../../../App';
 import logo from './../../../images/logos/logo.png'
 const Navigation = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    const handleLogout = () => {
-        sessionStorage.removeItem('userToken');
-        setLoggedInUser({})
-    }
     return (
         <div className="container">
             <Navbar bg="" expand="lg">
@@ -22,8 +18,8 @@ const Navigation = () => {
                         <Link className="text-decoration-none nav-link font-weight-bold mr-3" to="/contact">Contact us</Link>
                         <Link className="text-decoration-none nav-link font-weight-bold mr-3" to="/dashboard">Dashboard</Link>
                         {
-                            (loggedInUser.email || sessionStorage.getItem('userToken')) ?
-                                <Link className="text-decoration-none nav-link font-weight-bold mr-3 default-btn" onClick={handleLogout} to="/login">Logout</Link>
+                            loggedInUser.email ?
+                                <Link className="text-decoration-none nav-link font-weight-bold mr-3 default-btn" onClick={() => setLoggedInUser({})} to="/login">Logout</Link>
                                 :
                                 <Link className="text-decoration-none nav-link font-weight-bold mr-3 default-btn" to="/login">Login</Link>
                         }

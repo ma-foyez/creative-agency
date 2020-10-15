@@ -21,7 +21,6 @@ export const handleGoogleSignIn = () => {
                 error: '',
                 success: true
             };
-            getUserToken();
             return signedInUser;
         })
         .catch(err => {
@@ -37,16 +36,6 @@ export const handleGoogleSignIn = () => {
             return error;
 
         })
-}
-
-// get uer token
-const getUserToken = () => {
-    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-        .then((idToken) => {
-            sessionStorage.setItem('userToken', idToken)
-        }).catch((error) => {
-            // Handle error
-        });
 }
 //sign out
 export const handleSignOut = () => {

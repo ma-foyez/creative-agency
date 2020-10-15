@@ -9,3 +9,12 @@
 .brand-text{
   color: #7AB259;
 }
+
+.section h2::after{
+  content: '';
+  background:  #7AB259;
+  display: block;
+  height: 5px;
+  width: 200px;
+  margin: 20px auto 5px;
+}

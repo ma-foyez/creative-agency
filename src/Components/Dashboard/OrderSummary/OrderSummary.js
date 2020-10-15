@@ -3,14 +3,18 @@ import { userContext } from '../../../App';
 import DashboardNav from '../DashboardNav/DashboardNav';
 import OrderSummaryCard from '../OrderSummaryCard/OrderSummaryCard';
 import SideMenu from '../SideMenu/SideMenu';
+import * as ReactBootstrap from 'react-bootstrap';
 const OrderSummary = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [orderSummary, setOrderSummary] = useState([]);
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
-        // fetch('http://localhost:5000/userOrderSummary?email=' + loggedInUser.email)
-        fetch('http://localhost:5000/userOrderSummary')
-        .then(res => res.json())
-        .then(data=> setOrderSummary(data))
+        fetch('https://afternoon-journey-45337.herokuapp.com/userOrderSummary?email=' + loggedInUser.email)
+            .then(res => res.json())
+            .then(data => {
+                setOrderSummary(data);
+                setLoading(true);
+            })
     }, [])
     console.log(orderSummary)
     return (
@@ -21,11 +25,17 @@ const OrderSummary = () => {
                     <SideMenu></SideMenu>
                 </div>
                 <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '13%' }}>
-                    <h2>Services List</h2>
-                    <div className="row m-3">
-                       {
-                           orderSummary.map(data=> <OrderSummaryCard order={data}></OrderSummaryCard>)
-                       }
+                    
+                        <h2 className="ml-4 pb-2 pt-4 font-weight-bold">Services List</h2>
+                        <div className="row justify-content-center">
+                            {
+                                loading ? orderSummary.map(data => <OrderSummaryCard order={data}></OrderSummaryCard>) :
+                                    <div className="text-danger m-5 d-flex align-items-center font-weight-bold">
+                                        <ReactBootstrap.Spinner animation="border" />
+                                        <span className="ml-3"> Loading order summary...........</span>
+                                    </div>
+                            }
+
                     </div>
                 </div>
             </div>

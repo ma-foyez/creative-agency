@@ -8,8 +8,6 @@ import { useHistory, useParams } from 'react-router-dom';
 
 const AddOrder = () => {
     const { register, handleSubmit, errors } = useForm();
-    const history = useHistory()
-
     const [order, setOrder] = useState({})
     const [file, setFile] = useState(null);
     const handleBlur = (e) => {
@@ -30,23 +28,23 @@ const AddOrder = () => {
         formData.append('service', order.service);
         formData.append('projectDetails', order.projectDetails);
         formData.append('price', order.price);
-        formData.append('status','Panding');
+        formData.append('status', 'Panding');
 
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://afternoon-journey-45337.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    alert('new order added');
+                    alert('Your Order Successfully Received');
                 }
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('service').value = '';
                 document.getElementById('projectDetails').value = '';
                 document.getElementById('price').value = '';
-                
+
             })
     }
     return (
@@ -57,40 +55,42 @@ const AddOrder = () => {
                     <SideMenu></SideMenu>
                 </div>
                 <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '13%' }}>
-                    <h2>Order</h2>
-                    <form onSubmit={handleSubmit(onSubmit)} action="" className="m-3 form">
-                        <div className="row">
-                            <div className="col-md-8 rounded bg-white p-5 m-1">
-                                <div class="form-group">
-                                    <input type="text" onBlur={handleBlur} className="form-control" id="name" name="name" ref={register({ required: true })} placeholder="Your Name" />
-                                    {errors.name && <span className="text-danger font-weight-bold">Enter your name</span>}
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" onBlur={handleBlur} className="form-control" name="email" id="email" ref={register({ required: true })} placeholder="Your Email" />
-                                    {errors.email && <span className="text-danger font-weight-bold">Enter your email</span>}
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" onBlur={handleBlur} className="form-control" name="service" id="service" ref={register({ required: true })} placeholder="Your Service" />
-                                    {errors.service && <span className="text-danger font-weight-bold">Enter your service</span>}
-                                </div>
-                                <div class="form-group">
-                                    <textarea onBlur={handleBlur} className="form-control" name="projectDetails" id="projectDetails" ref={register({ required: true })} placeholder="Project Details"></textarea>
-                                    {errors.projectDetails && <span className="text-danger font-weight-bold">Describe your project details</span>}
-                                </div>
-                                <div className="row">
-                                    <div class="form-group col-6">
-                                        <input type="number" onBlur={handleBlur} className="form-control" id="price" name="price" ref={register({ required: true })} placeholder="Your Service" />
-                                        {errors.price && <span className="text-danger font-weight-bold">Enter an amount</span>}
+                    <div className="add-order p-3">
+                        <h2>Order</h2>
+                        <form onSubmit={handleSubmit(onSubmit)} action="" className="m-4 form">
+                            <div className="row">
+                                <div className="col-md-8 shadow-sm p-5 mb-5 bg-white rounded">
+                                    <div class="form-group">
+                                        <input type="text" onBlur={handleBlur} className="form-control" id="name" name="name" ref={register({ required: true })} placeholder="Your Name" />
+                                        {errors.name && <span className="text-danger font-weight-bold">Enter your name</span>}
                                     </div>
-                                    <div class="custom-file col-6">
-                                        <input type="file" onChange={handleFileChange} class="custom-file-input" id="customFile" name="image" />
-                                        <label class="custom-file-label alert-success" for="customFile"> <FontAwesomeIcon icon={faCloudUploadAlt} />  upload project file</label>
+                                    <div class="form-group">
+                                        <input type="email" onBlur={handleBlur} className="form-control" name="email" id="email" ref={register({ required: true })} placeholder="Your Email" />
+                                        {errors.email && <span className="text-danger font-weight-bold">Enter your email</span>}
                                     </div>
+                                    <div class="form-group">
+                                        <input type="text" onBlur={handleBlur} className="form-control" name="service" id="service" ref={register({ required: true })} placeholder="Your Service" />
+                                        {errors.service && <span className="text-danger font-weight-bold">Enter your service</span>}
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea onBlur={handleBlur} className="form-control" name="projectDetails" id="projectDetails" ref={register({ required: true })} placeholder="Project Details"></textarea>
+                                        {errors.projectDetails && <span className="text-danger font-weight-bold">Describe your project details</span>}
+                                    </div>
+                                    <div className="row">
+                                        <div class="form-group col-md-6">
+                                            <input type="number" onBlur={handleBlur} className="form-control" id="price" name="price" ref={register({ required: true })} placeholder="Your Service" />
+                                            {errors.price && <span className="text-danger font-weight-bold">Enter an amount</span>}
+                                        </div>
+                                        <div class="custom-file col-md-5">
+                                            <input type="file" onChange={handleFileChange} class="custom-file-input" id="customFile" name="image" />
+                                            <label class="custom-file-label alert-success" for="customFile"> <FontAwesomeIcon icon={faCloudUploadAlt} />  upload project file</label>
+                                        </div>
+                                    </div>
+                                    <button className="btn default-btn float-left mt-3" type="Submit">Submit</button>
                                 </div>
-                                <button className="btn default-btn float-left mt-3" type="Submit">Submit</button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

@@ -32,7 +32,7 @@ export default class RecentWorkCarousel extends Component {
             autoplaySpeed: 1000
         };
         return (
-            <section className="recent-work">
+            <section className="recent-work section">
                 <div className="container">
                     <h2 className="text-center font-weight-bold pb-5">Here are some of <span className="brand-text">our works</span> </h2>
                     <Slider ref={slider => (this.slider = slider)} {...settings}>

@@ -1,15 +1,28 @@
-import React from 'react';
-import AddService from '../AddService/AddService';
-import DashboardNav from '../DashboardNav/DashboardNav';
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import React, { useContext, useEffect, useState } from 'react';
+import { userContext } from '../../../App';
+import OrderSummary from '../OrderSummary/OrderSummary';
 import ServiceList from '../ServiceList/ServiceList';
-import SideMenu from '../SideMenu/SideMenu';
 
 const Dashboard = () => {
     document.title = 'Creative-agency | dashboard'
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const [isAdmin, setIsAdmin] = useState(false);
+    useEffect(() => {
+        fetch('https://afternoon-journey-45337.herokuapp.com/checkAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => {
+                setIsAdmin(data);
+            })
+    }, []);
     return (
         <>
-        <ServiceList></ServiceList>
+            {
+                isAdmin ? <ServiceList></ServiceList> : <OrderSummary></OrderSummary>
+            }
         </>
     );
 };

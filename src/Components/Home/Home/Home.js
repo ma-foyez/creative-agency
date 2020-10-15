@@ -7,6 +7,7 @@ import RecentWorkCarousel from '../RecentWorkCarousel/RecentWorkCarousel';
 import Services from '../Services/Services';
 
 const Home = () => {
+    document.title = 'Creative-Agency || Home'
     return (
         <div>
             <Header></Header>

@@ -12,7 +12,6 @@ const Login = () => {
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
     //handle sign up with google
-
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
