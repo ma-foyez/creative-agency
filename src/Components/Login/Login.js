@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Navigation from '../Shared/Navigation/Navigation';
 import logo from '../../images/logos/logo.png'
 import './Login.css'
 import google from '../../images/google.png'
+import * as firebase from "firebase/app";
 import { userContext } from '../../App';
 import { initializeLoginFramework, handleGoogleSignIn, handleSignOut } from './LoginManager';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -21,6 +22,8 @@ const Login = () => {
         error: ''
     });
     initializeLoginFramework();
+
+
 
     const googleSignIn = () => {
         handleGoogleSignIn()

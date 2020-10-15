@@ -17,6 +17,7 @@ import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
 import AddOrder from './Components/Dashboard/AddOrder/AddOrder';
 import Review from './Components/Dashboard/Review/Review';
 import OrderSummary from './Components/Dashboard/OrderSummary/OrderSummary';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 export const userContext = createContext();
 
 function App() {
@@ -31,22 +32,21 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/admin/servicelist">
+          <PrivateRoute path="/admin/servicelist">
             <ServiceList />
-          </Route>
-          <Route path="/addService">
+          </PrivateRoute>
+          <PrivateRoute path="/addService">
             <AddService />
-          </Route>
-
-          <Route path="/review">
+          </PrivateRoute>
+          <PrivateRoute path="/review">
             <Review />
-          </Route>
-          <Route path="/makeAdmin">
+          </PrivateRoute>
+          <PrivateRoute path="/makeAdmin">
             <MakeAdmin />
-          </Route>
-          <Route path="/orderSummary">
+          </PrivateRoute>
+          <PrivateRoute path="/orderSummary">
             <OrderSummary />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/dashboard">
             <Dashboard />
           </PrivateRoute>
@@ -55,6 +55,9 @@ function App() {
           </PrivateRoute>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="*">
+            <ErrorPage />
           </Route>
         </Switch>
       </Router>
