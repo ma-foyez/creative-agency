@@ -1,0 +1,13 @@
+.partner{
+    margin: 5px;
+    transition: 0.5s;
+}
+.partner:hover{
+    transform: scale(1.1);
+    transition: 0.7s;
+    -webkit-box-shadow: 1px 11px 16px 10px rgba(237,237,237,0.71);
+    -moz-box-shadow: 1px 11px 16px 10px rgba(237,237,237,0.71);
+    box-shadow: 1px 11px 16px 10px rgba(237,237,237,0.71);
+    border-radius: 10px;
+    cursor: pointer;
+}

@@ -35,7 +35,7 @@ const Contact = () => {
                 </div>
             </div>
             <footer className="text-center pt-5">
-                <p className="text-secondary font-weight-bold">Copyright {(new Date()).getFullYear()}-{(new Date()).getFullYear() + 1} || All Rights Reserved</p>
+                <p className="text-secondary font-weight-bold">Copyright {(new Date()).getFullYear()}-{(new Date()).getFullYear() + 1} || All Rights Creative Agency</p>
             </footer>
         </section>
     );

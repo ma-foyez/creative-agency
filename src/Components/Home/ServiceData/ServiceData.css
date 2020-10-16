@@ -1,6 +1,7 @@
 .card-hover:hover{
     transform: scale(1.1);
     transition: 0.7s;
+    cursor: pointer;
 }
 .card{
     border: none!important;
