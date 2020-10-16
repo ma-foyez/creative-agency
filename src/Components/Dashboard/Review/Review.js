@@ -13,7 +13,7 @@ const Review = () => {
         const info = { name, email, photo, data };
         console.log(info);
 
-        fetch('https://creatives-agency.herokuapp.com/addUserFeedback', {
+        fetch('https://young-shore-62919.herokuapp.com/addUserFeedback', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(info)
@@ -35,7 +35,7 @@ const Review = () => {
                 <div className="col-md-2">
                     <SideMenu></SideMenu>
                 </div>
-                <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '13%' }}>
+                <div className="col-md-10 dashboard-container">
                     <div className="add-service p-3">
                         <h3 className="font-weight-bold">Review</h3>
                         <form onSubmit={handleSubmit(onSubmit)} className="m-4 form">

@@ -4,19 +4,23 @@ import DashboardNav from '../DashboardNav/DashboardNav';
 import ServiceDataTable from '../ServiceDataTable/ServiceDataTable';
 import SideMenu from '../SideMenu/SideMenu';
 import * as ReactBootstrap from 'react-bootstrap';
-
 const ServiceList = () => {
     const [loadOrders, setLoadOrders] = useState([]);
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        fetch('https://creatives-agency.herokuapp.com/loadAllOrders')
+        fetch('https://young-shore-62919.herokuapp.com/loadAllOrders')
             .then(res => res.json())
             .then(data => {
                 setLoadOrders(data);
                 setLoading(true);
             })
-    }, [loadOrders])
+    }, [loadOrders]);
+
+    const filterOrders = (id) => {
+        const newOrders = loadOrders.filter(orders => orders._id !== id);
+        setLoadOrders(newOrders);
+    }
     return (
         <section>
             <DashboardNav></DashboardNav>
@@ -24,7 +28,7 @@ const ServiceList = () => {
                 <div className="col-md-2">
                     <SideMenu></SideMenu>
                 </div>
-                <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '13%' }}>
+                <div className="col-md-10 dashboard-container">
                     <h2 className="ml-4 pb-2 pt-4 font-weight-bold">Services List</h2>
                     {
                         loading ?
@@ -37,11 +41,12 @@ const ServiceList = () => {
                                             <th>Service</th>
                                             <th>Project Details</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
-                                            loadOrders.map(orders => <ServiceDataTable key={orders._id} order={orders}></ServiceDataTable>)
+                                            loadOrders.map(orders => <ServiceDataTable key={orders._id} order={orders} filterOrders={filterOrders}></ServiceDataTable>)
                                         }
                                     </tbody>
                                 </Table>

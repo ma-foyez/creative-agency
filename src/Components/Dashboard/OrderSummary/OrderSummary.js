@@ -9,7 +9,7 @@ const OrderSummary = () => {
     const [orderSummary, setOrderSummary] = useState([]);
     const [loading, setLoading] = useState(false)
     useEffect(() => {
-        fetch('https://creatives-agency.herokuapp.com/userOrderSummary?email=' + loggedInUser.email)
+        fetch('https://young-shore-62919.herokuapp.com/userOrderSummary?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => {
                 setOrderSummary(data);
@@ -24,13 +24,13 @@ const OrderSummary = () => {
                 <div className="col-md-2">
                     <SideMenu></SideMenu>
                 </div>
-                <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '13%' }}>
+                <div className="col-md-10 dashboard-container">
 
                     <h2 className="ml-4 pb-2 pt-4 font-weight-bold brand-text">Services List</h2>
 
-                    <h3 className="m-2 text-secondary">
+                    <h3 className="m-2 text-secondary font-weight-bold">
                         {
-                            orderSummary.length > 0 ? <span>Hello {loggedInUser.name} , your total orders - {orderSummary.length}</span> : <span>You have not yet received any service from us.</span>
+                            orderSummary.length > 0 ? <span> your total orders - {orderSummary.length}</span> : <span>You have not yet received any service from us.</span>
                         }
                     </h3>
                     <div className="row justify-content-center">

@@ -30,7 +30,7 @@ const AddOrder = () => {
         formData.append('price', order.price);
         formData.append('status', 'Panding');
 
-        fetch('https://creatives-agency.herokuapp.com/addOrder', {
+        fetch('https://young-shore-62919.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
@@ -56,7 +56,7 @@ const AddOrder = () => {
                 </div>
                 <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '13%' }}>
                     <div className="add-order p-3">
-                        <h2>Order</h2>
+                        <h2 className="font-weight-bold pb-5">Order</h2>
                         <form onSubmit={handleSubmit(onSubmit)} action="" className="m-4 form">
                             <div className="row">
                                 <div className="col-md-8 shadow-sm p-5 mb-5 bg-white rounded">

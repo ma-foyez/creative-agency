@@ -1,12 +1,21 @@
 .color-Panding{
     color: #FF4545;
     border: none;
+    background: none;
+    cursor: pointer;
 }
 .color-On-going{
     color: #ffa909;
     border: none;
+    background: none;
+    cursor: pointer;
 }
 .color-Done{
     color: #009444;
     border: none;
+    background: none;
+    cursor: pointer;
+}
+.delete{
+    cursor: pointer;
 }

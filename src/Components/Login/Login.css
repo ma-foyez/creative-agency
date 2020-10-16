@@ -8,8 +8,8 @@
     transition: 0.5s;
    }
    .signup:hover{
-       background-color: #FF7044;
-       color: white;
+       background-color: #FBD062;
+       color: black;
    }
    .signup img{
        width: 8%;

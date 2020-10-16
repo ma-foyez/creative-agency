@@ -23,7 +23,7 @@ const AddService = () => {
         formData.append('serviceTitle', info.serviceTitle);
         formData.append('description', info.description);
 
-        fetch('https://creatives-agency.herokuapp.com/addService', {
+        fetch('https://young-shore-62919.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
@@ -43,7 +43,7 @@ const AddService = () => {
                 <div className="col-md-2">
                     <SideMenu></SideMenu>
                 </div>
-                <div className="col-md-10" style={{ backgroundColor: '#F4F7FC', paddingBottom: '10%' }}>
+                <div className="col-md-10 dashboard-container">
                     <div className="add-service p-4">
                         <h3 className="font-weight-bold">Add Service</h3>
                         <form onSubmit={handleSubmit(onSubmit)} className="m-3 form">

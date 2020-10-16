@@ -10,7 +10,7 @@ const SideMenu = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
-        fetch('https://creatives-agency.herokuapp.com/checkAdmin', {
+        fetch('https://young-shore-62919.herokuapp.com/checkAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })

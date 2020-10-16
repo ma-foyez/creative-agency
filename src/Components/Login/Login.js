@@ -51,7 +51,7 @@ const Login = () => {
 
         <div>
             <Navigation></Navigation>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-5 text-center m-4 shadow p-4 mb-5 bg-white rounded">
                         <img style={{ height: '60px' }} className="ml-4 mb-5" src={logo} alt="" />
