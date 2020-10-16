@@ -13,15 +13,6 @@ body{
 .brand-text{
   color: #7AB259;
 }
-
-.dash-title::after{
-  content: '';
-  background:  #7AB259;
-  display: block;
-  height: 5px;
-  width:100px;
-  margin: 10px 3px;
-}
 .dashboard-container{
   background-color: #F4F7FC;
   min-height: 600px;
